@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(user_name: "jacklinton", password: "1216&Bbvdbnl", password_confirmation: "1216&Bbvdbnl", admin: true, email: "jacklinton@mac.com", quote: "All of your base are belong to us!")
+Post.create(user_id: 1, body: "Welcome to the Rails Blog!")
