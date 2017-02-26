@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get '/', to: "home#index"
+ 
   resources :comments
   resources :posts
   resources :users
-  get '/', to: "home#index"
+  
 
   
 end

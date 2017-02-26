@@ -1,1 +1,15 @@
 <h1>The Rails Blog</h1>
+
+<%= link_to "Home", "/" %>
+
+<ul>
+	<li>
+		<% @posts.each do |p| %>
+			<% user = @users.find(p.user_id) %>
+			<%= link_to user.user_name, user %>
+			<h4>Post # <%= p.id %></h4>
+			
+			<%= p.body %>
+		<% end %>
+	</li>
+</ul>

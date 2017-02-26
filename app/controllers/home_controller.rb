@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-    resources :users
-    resources :posts
-    resources :comments
+    @users = User.all
+    @posts = Post.all
   end
 end
