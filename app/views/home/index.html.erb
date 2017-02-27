@@ -1,7 +1,5 @@
 <h1>The Rails Blog</h1>
 
-<%= link_to "Home", "/" %>
-
 <ul>
 	<li>
 		<% @posts.each do |p| %>
@@ -10,6 +8,15 @@
 			<h4>Post # <%= p.id %></h4>
 			
 			<%= p.body %>
+			<br>
+			<ul>
+				<li>
+				<% comment = @comments.where(post_id: p.id) %>
+				<% comment.each do |c| %>
+					<%= c.user_id %> | <%= c.body %>
+				<% end %>
+				</li>
+			</ul>
 		<% end %>
 	</li>
 </ul>
