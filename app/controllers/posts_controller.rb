@@ -15,17 +15,24 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @post.create
   end
 
   # GET /posts/1/edit
   def edit
+    @post.update
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-
+    @post = Post.new
+    @post.user_id = current_user.id
+    @post.body = post_params[:body]
+    @post.data = post_params[:data]
+    @post.image = post_params[:image]
+    @post.save
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

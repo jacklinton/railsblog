@@ -1,4 +1,4 @@
-<%= form_for(post) do |f| %>
+<%= form_for post, url: "posts#new", html: {multipart: true}  do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,10 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
+    <h4><%= current_user.user_name %></h4>
   </div>
-
+  
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.hidden_field :user_id %>
+  </div>
+  
   <div class="field">
     <%= f.label :body %>
     <%= f.text_area :body %>
@@ -25,8 +29,13 @@
     <%= f.label :data %>
     <%= f.text_field :data %>
   </div>
+  
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "submit Post"%>
   </div>
 <% end %>
