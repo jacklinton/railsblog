@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226021624) do
+ActiveRecord::Schema.define(version: 20170226234430) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20170226021624) do
     t.integer  "user_id"
     t.text     "body"
     t.binary   "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -36,13 +40,16 @@ ActiveRecord::Schema.define(version: 20170226021624) do
     t.string   "password"
     t.string   "password_digest"
     t.string   "password_confirmation"
-    t.binary   "avatar"
     t.text     "quote"
     t.text     "comments"
     t.boolean  "admin"
     t.string   "email"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email"
     t.index ["user_name"], name: "index_users_on_user_name"
   end
