@@ -4,6 +4,6 @@ class HomeController < ApplicationController
     @posts = Post.all
     @comments = Comment.all
   
-    @user = User.find(current_user[:id])
+   
   end
 end
