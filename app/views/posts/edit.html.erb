@@ -9,7 +9,7 @@
 
 <h1>Editing Post</h1>
 
-<%= form_for @post, url: posts_path, html: {multipart: true}  do |f| %>
+<%= form_for @post, url: post_path, html: {multipart: true}  do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
